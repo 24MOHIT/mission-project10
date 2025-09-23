@@ -20,32 +20,4 @@ import com.rays.service.RoleServiceInt;
 @RequestMapping(value = "Role")
 public class RoleCtl extends BaseCtl<RoleForm, RoleDTO, RoleServiceInt> {
 
-	@Autowired
-	private RoleServiceInt roleService;
-
-	@GetMapping("/preload")
-	public ORSResponse preload() {
-		System.out.println("inside preload");
-		ORSResponse res = new ORSResponse(true);
-		RoleDTO dto = new RoleDTO();
-		dto.setStatus(RoleDTO.ACTIVE);
-		List<DropdownList> list = roleService.search(dto, userContext);
-		res.addResult("roleList", list);
-		return res;
-	}
-
-	@GetMapping("name/{name}")
-	public ORSResponse get(@PathVariable String name) {
-		ORSResponse res = new ORSResponse(true);
-		RoleDTO dto = baseService.findByName(name, userContext);
-		System.out.println("Role " + dto);
-		if (dto != null) {
-			res.addData(dto);
-		} else {
-			res.setSuccess(false);
-			res.addMessage("Record not found");
-		}
-		return res;
-	}
-
 }

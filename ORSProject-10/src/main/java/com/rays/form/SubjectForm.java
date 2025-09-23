@@ -28,13 +28,7 @@ public class SubjectForm extends BaseForm {
 		this.name = name;
 	}
 
-	public long getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(long courseId) {
-		this.courseId = courseId;
-	}
+	
 
 //	public String getCourseName() {
 //		return courseName;
@@ -43,6 +37,14 @@ public class SubjectForm extends BaseForm {
 //	public void setCourseName(String courseName) {
 //		this.courseName = courseName;
 //	}
+
+	public Long getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(Long courseId) {
+		this.courseId = courseId;
+	}
 
 	public String getDescription() {
 		return description;

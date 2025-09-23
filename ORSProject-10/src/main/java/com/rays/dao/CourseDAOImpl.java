@@ -21,7 +21,7 @@ public class CourseDAOImpl extends BaseDAOImpl<CourseDTO> implements CourseDAOIn
 
 		if (!isEmptyString(dto.getName())) {
 
-			whereCondition.add(builder.like(qRoot.get("courseName"), dto.getName() + "%"));
+			whereCondition.add(builder.like(qRoot.get("name"), dto.getName() + "%"));
 		}
 
 		return whereCondition;
