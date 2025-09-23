@@ -42,6 +42,6 @@ export class SignupComponent {
   }
 
   reset(){
-    this.router.navigate(['/signup']);
+   location.reload();
   }
 }

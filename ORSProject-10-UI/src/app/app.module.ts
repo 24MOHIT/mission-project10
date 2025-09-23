@@ -16,6 +16,22 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './login/signup.component';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user/user-list.component';
+import { RoleComponent } from './role/role.component';
+import { CollegeComponent } from './college/college.component';
+import { StudentComponent } from './student/student.component';
+import { MarksheetComponent } from './marksheet/marksheet.component';
+import { CourseComponent } from './course/course.component';
+import { SubjectComponent } from './subject/subject.component';
+import { TimetableComponent } from './timetable/timetable.component';
+import { FacultyComponent } from './faculty/faculty.component';
+import { RoleListComponent } from './role/role-list.component';
+import { CollegeListComponent } from './college/college-list.component';
+import { StudentListComponent } from './student/student-list.component';
+import { MarksheetListComponent } from './marksheet/marksheet-list.component';
+import { CourseListComponent } from './course/course-list.component';
+import { SubjectListComponent } from './subject/subject-list.component';
+import { TimetableListComponent } from './timetable/timetable-list.component';
+import { FacultyListComponent } from './faculty/faculty-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +41,23 @@ import { UserListComponent } from './user/user-list.component';
     LoginComponent,
     SignupComponent,
     UserComponent,
-    UserListComponent
+    UserListComponent,
+    RoleComponent,
+    CollegeComponent,
+    StudentComponent,
+    MarksheetComponent,
+    CourseComponent,
+    SubjectComponent,
+    TimetableComponent,
+    FacultyComponent,
+    RoleListComponent,
+    CollegeListComponent,
+    StudentListComponent,
+    MarksheetListComponent,
+    CourseListComponent,
+    SubjectListComponent,
+    TimetableListComponent,
+    FacultyListComponent
     
   ],
   imports: [
