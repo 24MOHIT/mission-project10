@@ -21,6 +21,8 @@ import { RoleListComponent } from './role/role-list.component';
 import { StudentListComponent } from './student/student-list.component';
 import { SubjectListComponent } from './subject/subject-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
+import { ChangepasswordComponent } from './user/changepassword.component';
+import { MyprofileComponent } from './user/myprofile.component';
 
 const routes: Routes = [
 
@@ -148,6 +150,18 @@ const routes: Routes = [
   {
     path: 'facultylist',
     component: FacultyListComponent
+  },
+   {
+    path: 'myprofile',
+    component: MyprofileComponent
+  },
+  {
+    path: 'myprofile/:id',
+    component: MyprofileComponent
+  },
+  {
+    path: 'changepassword',
+    component: ChangepasswordComponent
   }
 
 ];

@@ -7,9 +7,10 @@ import { BaseListCtl } from '../base_list.component';
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
 })
-export class UserListComponent extends BaseListCtl{
+export class UserListComponent extends BaseListCtl {
 
-  constructor(locator: ServiceLocatorService, route: ActivatedRoute){
+  constructor(locator: ServiceLocatorService, route: ActivatedRoute) {
     super(locator.endpoints.USER, locator, route);
   }
+
 }

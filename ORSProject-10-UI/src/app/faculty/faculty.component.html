@@ -27,9 +27,9 @@
             <td style="position: fixed; color: red;">{{form.inputerror.email}}</td>
         </tr>
 
-        <tr>
+         <tr>
             <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" placeholder="Select Date of Birth" style="width: 97%;"></td>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
         </tr>
 

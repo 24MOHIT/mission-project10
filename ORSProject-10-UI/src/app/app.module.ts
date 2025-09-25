@@ -32,6 +32,15 @@ import { CourseListComponent } from './course/course-list.component';
 import { SubjectListComponent } from './subject/subject-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
 import { FacultyListComponent } from './faculty/faculty-list.component';
+import { MyprofileComponent } from './user/myprofile.component';
+import { ChangepasswordComponent } from './user/changepassword.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 
 @NgModule({
   declarations: [
@@ -57,14 +66,23 @@ import { FacultyListComponent } from './faculty/faculty-list.component';
     CourseListComponent,
     SubjectListComponent,
     TimetableListComponent,
-    FacultyListComponent
+    FacultyListComponent,
+    MyprofileComponent,
+    ChangepasswordComponent
     
   ],
   imports: [
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps:[HttpClient]
+      }
+    })
   ],
   providers: [
     HttpServiceService,

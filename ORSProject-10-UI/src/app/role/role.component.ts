@@ -9,7 +9,8 @@ import { BaseCtl } from '../base.component';
 
 })
 export class RoleComponent extends BaseCtl {
-constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
+
+  constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
     super(locator.endpoints.ROLE, locator, route);
   }
 
