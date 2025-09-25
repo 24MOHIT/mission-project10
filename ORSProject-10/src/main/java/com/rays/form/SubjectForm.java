@@ -8,17 +8,32 @@ import com.rays.common.BaseForm;
 import com.rays.dto.SubjectDTO;
 
 public class SubjectForm extends BaseForm {
+	@NotNull(message = "Course is required")
+	private Long courseId = 0L;
 
-	@NotEmpty(message = "please enter name")
+	private String courseName;
+
+	@NotEmpty(message = "Name is required")
 	private String name;
 
-	@NotNull
-	private Long courseId;
-
-//	private String courseName;
-
-	@NotEmpty(message = "please enter description")
+	@NotEmpty(message = "Description is required")
 	private String description;
+
+	public long getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(long courseId) {
+		this.courseId = courseId;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
 
 	public String getName() {
 		return name;
@@ -26,24 +41,6 @@ public class SubjectForm extends BaseForm {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	
-
-//	public String getCourseName() {
-//		return courseName;
-//	}
-//
-//	public void setCourseName(String courseName) {
-//		this.courseName = courseName;
-//	}
-
-	public Long getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(Long courseId) {
-		this.courseId = courseId;
 	}
 
 	public String getDescription() {
@@ -59,10 +56,11 @@ public class SubjectForm extends BaseForm {
 
 		SubjectDTO dto = initDTO(new SubjectDTO());
 
-		dto.setName(name);
 		dto.setCourseId(courseId);
-//		dto.setCourseName(courseName);
+		dto.setCourseName(courseName);
+		dto.setName(name);
 		dto.setDescription(description);
+
 		return dto;
 	}
 }

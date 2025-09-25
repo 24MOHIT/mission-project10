@@ -12,12 +12,12 @@ import com.rays.dto.TimeTableDTO;
 public class TimeTableForm extends BaseForm {
 
 	@NotNull
-	private Long subjectId;
+	private Long subjectId = 0L;
 
 	private String subjectName;
 
 	@NotNull
-	private Long courseId;
+	private Long courseId = 0L;
 
 	private String courseName;
 

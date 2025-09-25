@@ -33,17 +33,17 @@ public class FacultyForm extends BaseForm {
 	private String email;
 
 	@NotNull
-	private Long subjectId;
+	private Long subjectId = 0L;
 
 	private String subjectName;
 
 	@NotNull
-	private Long courseId;
+	private Long courseId = 0L;
 
 	private String courseName;
 
 	@NotNull
-	private Long collegeId;
+	private Long collegeId = 0L;
 
 	private String collegeName;
 

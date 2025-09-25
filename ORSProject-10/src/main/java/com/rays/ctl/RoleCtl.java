@@ -19,5 +19,13 @@ import com.rays.service.RoleServiceInt;
 @RestController
 @RequestMapping(value = "Role")
 public class RoleCtl extends BaseCtl<RoleForm, RoleDTO, RoleServiceInt> {
-
+	@GetMapping("preload")
+	public ORSResponse preload() {
+		ORSResponse res = new ORSResponse(true);
+		RoleDTO dto = new RoleDTO();
+		//dto.setStatus(RoleDTO.ACTIVE);
+		List<DropdownList> list = baseService.search(dto, userContext);
+		res.addResult("roleList", list);
+		return res;
+	}
 }

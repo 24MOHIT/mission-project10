@@ -1,6 +1,5 @@
 package com.rays.service;
 
-
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import com.rays.dto.UserDTO;
 
 @Service
 @Transactional
-public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implements UserServiceInt{
+public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implements UserServiceInt {
 
 	@Transactional(readOnly = true)
 	public UserDTO findByLoginId(String login, UserContext userContext) {
@@ -26,7 +25,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 	public UserDTO register(UserDTO dto) {
 		UserContext userContext = new UserContext();
 		userContext.setLoginId("super@nenosystems.com");
-		
+
 		Long id = add(dto, userContext);
 
 		dto.setId(id);
@@ -35,7 +34,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 		params.put("user", dto.getFirstName() + " " + dto.getLastName());
 		params.put("login", dto.getLoginId());
 		params.put("password", dto.getPassword());
-	
+
 		return dto;
 	}
 
@@ -55,6 +54,20 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public UserDTO changePassword(String loginId, String oldPassword, String newPassword, UserContext userContext) {
+
+		UserDTO dto = findByLoginId(loginId, null);
+
+		if (dto != null && oldPassword.equals(dto.getPassword())) {
+			dto.setPassword(newPassword);
+			update(dto, userContext);
+			return dto;
+		} else {
+			return null;
+		}
 	}
 
 }

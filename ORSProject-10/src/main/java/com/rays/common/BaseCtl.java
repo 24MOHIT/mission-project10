@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -133,23 +134,27 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 	@RequestMapping(value = "/search/{pageNo}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ORSResponse search(@RequestBody F form, @PathVariable int pageNo) {
 
-		System.out.println("BaseCtl Search method with pageNo :: " + pageNo + "   Page size is :: " + pageSize);
-
 		pageNo = (pageNo < 0) ? 0 : pageNo;
 
 		T dto = (T) form.getDto();
 
 		ORSResponse res = new ORSResponse(true);
 
-		List list = baseService.search(dto, pageNo, pageSize, userContext);
-
-		res.addData(list);
-
-		List nextList = baseService.search(dto, pageNo + 1, pageSize, userContext);
-
-		res.addResult("nextList", nextList.size());
+		res.addData(baseService.search(dto, pageNo, pageSize, userContext));
 
 		return res;
 	}
 
+	@GetMapping("get/{id}")
+	public ORSResponse get(@PathVariable long id) {
+		ORSResponse res = new ORSResponse(true);
+		T dto = baseService.findById(id, userContext);
+		if (dto != null) {
+			res.addData(dto);
+		} else {
+			res.setSuccess(false);
+			res.addMessage("Record not found");
+		}
+		return res;
+	}
 }
