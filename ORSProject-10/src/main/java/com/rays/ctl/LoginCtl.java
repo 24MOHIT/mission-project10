@@ -27,6 +27,7 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	@PostMapping("login")
 	public ORSResponse login(@RequestBody @Valid LoginForm form, BindingResult bindingResult, HttpSession session,
 			HttpServletRequest request) throws Exception {
+		
 		ORSResponse res = validate(bindingResult);
 
 		if (!res.isSuccess()) {
