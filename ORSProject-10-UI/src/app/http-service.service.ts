@@ -7,12 +7,24 @@ import { Router } from '@angular/router';
 })
 export class HttpServiceService {
 
+  token: any = '';
+
+  setToken() {
+    this.token = localStorage.getItem('token');
+  }
+
+  getToken() {
+    console.log("token----> " + localStorage.getItem('token'));
+    return localStorage.getItem('token');
+  }
+
+
   constructor(private httpClient: HttpClient, private router: Router) {
 
   }
 
-   get(endpoint: any, callback: any) {
-    return this.httpClient.get(endpoint , { withCredentials: true }).subscribe((data) => {
+  get(endpoint: any, callback: any) {
+    return this.httpClient.get(endpoint, { withCredentials: true }).subscribe((data) => {
       callback(data);
     }, (error) => {
       this.handleError(error);
@@ -26,7 +38,7 @@ export class HttpServiceService {
       this.handleError(error);
     });
   }
- 
+
   private handleError(error: any): void {
     console.error('Request failed', error);
     if (error.status === 401) {

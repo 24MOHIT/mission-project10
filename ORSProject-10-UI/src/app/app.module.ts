@@ -88,7 +88,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpServiceService,
     EndpointServiceService,
     ServiceLocatorService,
-    AuthServiceService
+    AuthServiceService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthServiceService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

@@ -43,6 +43,7 @@ export class LoginComponent {
         localStorage.setItem("fname", res.result.fname);
         localStorage.setItem("lname", res.result.lname);
         localStorage.setItem("userId", res.result.data.id);
+        localStorage.setItem("token", res.result.token)
         console.log('fname');
          _self.router.navigateByUrl('dashboard');
       }
@@ -51,5 +52,9 @@ export class LoginComponent {
 
   signUp() {
     this.router.navigateByUrl('signup');
+  }
+
+  forward(){
+    location.reload
   }
 }
