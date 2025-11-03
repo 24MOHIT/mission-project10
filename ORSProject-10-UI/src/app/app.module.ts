@@ -36,6 +36,7 @@ import { MyprofileComponent } from './user/myprofile.component';
 import { ChangepasswordComponent } from './user/changepassword.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -68,7 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TimetableListComponent,
     FacultyListComponent,
     MyprofileComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    FooterComponent
     
   ],
   imports: [

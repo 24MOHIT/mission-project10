@@ -12,7 +12,8 @@
     <table>
         <tr>
             <th align="left">First Name<span style="color: red">*</span></th>
-            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name">
+            </td>
             <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
         </tr>
 
@@ -30,13 +31,15 @@
 
         <tr>
             <th align="left">Password<span style="color: red">*</span></th>
-            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password">
+            </td>
             <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
         </tr>
 
         <tr>
             <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
+                    placeholder="Select Date of Birth" style="width: 65.5%;"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
         </tr>
 
@@ -65,15 +68,38 @@
 
         <tr>
             <th align="left">Mobile<span style="color: red">*</span></th>
-            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" placeholder="Enter Mobile No."></td>
+            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10"
+                    placeholder="Enter Mobile No."></td>
             <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
         </tr>
 
         <tr>
             <th align="left">Alternate Mobile<span style="color: red">*</span></th>
-            <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10" placeholder="Enter Alternate Mobile No."></td>
+            <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10"
+                    placeholder="Enter Alternate Mobile No."></td>
             <td style="position: fixed; color: red;">{{form.inputerror.alternateMobile}}</td>
         </tr>
+
+        <tr>
+
+            <th>Image</th>
+            <div *ngIf="form.data.imageId">
+                <img src="http://localhost:8080/User/profilePic/{{form.data.id}}" height="50px" width="60px">
+            </div>
+            <div *ngIf="!form.data.imageId">
+                <img src="../../assets/files/default.jpg" height="50px" width="60px">
+            </div>
+
+            <input type="file" id="customFile" name="imageId" (change)="onFileSelect($event)"
+                accept="image/*">
+
+            <td style="position: fixed; color: red;">{{form.inputerror.imageId}}</td>
+
+
+
+        </tr>
+
+
 
         <tr>
             <th align="left">Status<span style="color: red">*</span></th>
@@ -98,3 +124,4 @@
         </tr>
     </table>
 </div>
+<app-footer></app-footer>

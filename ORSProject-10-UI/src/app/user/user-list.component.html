@@ -37,6 +37,7 @@
             <th><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)"/></th>
             <th>S.No</th>
             <th>First Name</th>
+             <th>Image</th>
             <th>Last Name</th>
             <th>Login Id</th>
             <th>Date of Birth</th>
@@ -50,6 +51,17 @@
         <tr align="center" *ngFor="let m of form.list; let i = index">
             <td><input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id" [value]="isMasterSel"></td>
             <td>{{(form.pageNo*5)+i+ 1}}</td>
+
+             <td>
+                  <div *ngIf="m.imageId" >
+                    <img src="http://localhost:8080/User/profilePic/{{m.id}}" height="50px" width="60px" >
+                  </div>
+                  <div *ngIf="!m.imageId" >
+                    <img src="../../assets/img/default.png" height="50px" width="60px"  >
+                  </div>
+                </td>
+
+
             <td>{{m.firstName}}</td>
             <td>{{m.lastName}}</td>
             <td>{{m.loginId}}</td>
@@ -72,4 +84,6 @@
             <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.list.length < 5">next</button></td>
         </tr>
     </table>
+    <br><br><br><br><br><br>
 </div>
+<app-footer></app-footer>

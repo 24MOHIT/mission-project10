@@ -1,41 +1,48 @@
 <app-navbar></app-navbar>
+ 
+<div align="center">
+ 
+    <h1 align="center" style="margin-bottom: 5px; color: navy">{{'Login' | translate}}</h1>
+ 
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+ 
+    <table>
+        <tr>
+            <th align="left">{{'Login Id' | translate}}<span style="color: red">*</span></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Login ID"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
+        </tr>
+ 
+        <tr>
+            <th align="left">{{'Password' | translate}}<span style="color: red">*</span></th>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
+        </tr>
+ 
+        <tr></tr>
+ 
+        <tr>
+            <th></th>
+            <td colspan="2">
+                <button (click)="signIn()">{{'Sign In' | translate}}</button>&nbsp;
+                <button (click)="signUp()">{{'Sign Up' | translate}}</button>
+            </td>
+        </tr>
+ 
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+ 
+        <tr>
+            <th></th>
+            <td><a [routerLink]="['/forgotpassword']"><b>{{'Forget my password?' | translate}}</b></a>&nbsp;</td>
+        </tr>
+    </table>
+</div>
 
-
-<div class="container mt-5" style="max-width: 500px;">
-    <div class="card shadow p-4" style="width: 100%; max-width: 500px; background-color: lightgreen">
-        <h2 class="text-center text-primary mb-4">Login</h2>
-
-        <div *ngIf="form.message" class="mb-3 text-center">
-            <div *ngIf="!form.error" class="alert alert-success py-2">{{ form.message }}
-            </div>
-            <div *ngIf="form.error" class="alert alert-danger py-2"> {{ form.message }}
-            </div>
-        </div>
-
-        <form>
-            <div class="form-group mb-3">
-                <h6> <label for="oldPassword">Login Id <span class="text-danger">*</span></label></h6>
-                <input type="loginid" id="loginId" name="loginId" [(ngModel)]="form.data.loginId" class="form-control"
-                    placeholder="Enter Old Password" required />
-                <small class="text-danger">{{ form.inputerror.loginId }}</small>
-            </div>
-
-            <div class="form-group mb-3">
-                <h6> <label for="oldPassword">Password <span class="text-danger">*</span></label></h6>
-                <input type="password" id="password" name="loginId" [(ngModel)]="form.data.password"
-                    class="form-control" placeholder="Enter Old Password" required />
-                <small class="text-danger">{{ form.inputerror.password }}</small>
-            </div>
-
-
-            <div class="text-center">
-                <button type="submit" (click)="signIn()" class="btn btn-primary px-4">Sign In</button>
-                &nbsp;&nbsp;
-                <button (click)="signUp()" class="btn btn-primary px-4">Sign Up</button>
-            </div>
-
-            <div align="center">
-                <th></th>
-                <td><a href="#"><b>Forget my password?</b></a>&nbsp;</td>
-            </div>
-        </form>
+ <app-footer></app-footer>
+ 
