@@ -31,6 +31,14 @@ public class StudentDAOImpl extends BaseDAOImpl<StudentDTO> implements StudentDA
 
 			whereCondition.add(builder.like(qRoot.get("enrolNo"), dto.getEnrolNo() + "%"));
 		}
+		if (!isEmptyString(dto.getFirstName())) {
+
+			whereCondition.add(builder.like(qRoot.get("firstName"), dto.getFirstName() + "%"));
+		}
+		if (!isEmptyString(dto.getCollegeName())) {
+
+			whereCondition.add(builder.like(qRoot.get("collegeName"), dto.getCollegeName() + "%"));
+		}
 		return whereCondition;
 	}
 

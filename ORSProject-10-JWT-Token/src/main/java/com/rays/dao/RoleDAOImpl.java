@@ -28,6 +28,9 @@ public class RoleDAOImpl extends BaseDAOImpl<RoleDTO> implements RoleDAOInt {
 
 			whereCondition.add(builder.like(qRoot.get("name"), dto.getName() + "%"));
 		}
+		if (!isZeroNumber(dto.getId())) {
+			whereCondition.add(builder.equal(qRoot.get("id"), dto.getId() ));
+		}
 
 		return whereCondition;
 	}

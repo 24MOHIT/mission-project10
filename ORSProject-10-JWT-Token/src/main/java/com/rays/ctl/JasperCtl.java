@@ -40,9 +40,6 @@ import net.sf.jasperreports.engine.JasperReport;
 @RequestMapping(value = "Jasper")
 public class JasperCtl extends BaseCtl<MarksheetForm, MarksheetDTO, MarksheetServiceInt> {
 
-	@Autowired
-	ServletContext context;
-
 	private SessionFactory sessionFactory = null;
 
 	@PersistenceContext
@@ -55,8 +52,6 @@ public class JasperCtl extends BaseCtl<MarksheetForm, MarksheetDTO, MarksheetSer
 		ORSResponse res = new ORSResponse(true);
 
 		ResourceBundle rb = ResourceBundle.getBundle("application");
-
-		String path = context.getRealPath(rb.getString("jasper"));
 
 		Connection con = null;
 
