@@ -39,8 +39,6 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 		}
 	}
 
-	
-
 	@Autowired
 	protected S baseService;
 
