@@ -6,7 +6,6 @@ import { BaseCtl } from '../base.component';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -24,10 +23,6 @@ export class UserComponent extends BaseCtl {
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute, private httpClient: HttpClient) {
     super(locator.endpoints.USER, locator, route);
   }
-
-  
-
-
 
   onFileSelect(event: Event): void {
     const input = event.target as HTMLInputElement;
